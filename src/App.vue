@@ -70,11 +70,10 @@ a {
 }
 
 .el-main {
-  background-color: #fff;
-  /* background-color: #E9EEF3; */
+  /* background-color: #fff; */
+  background-color: #f4f6f7;
   color: #333;
   text-align: center;
-  line-height: 160px;
 }
 
 body > .el-container {

@@ -39,6 +39,7 @@
 </template>
 <script>
 import { ElMenu, ElMenuItem, ElAvatar } from 'element-plus'
+
 export default {
   name: 'NavBar',
   components: {
@@ -48,10 +49,10 @@ export default {
   },
   setup() {
     const handleOpen = (key, keyPath) => {
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     }
     const handleClose = (key, keyPath) => {
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     }
     return {
       handleOpen,

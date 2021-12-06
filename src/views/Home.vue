@@ -1,21 +1,33 @@
 <template>
-  <div class="home">
-    <h1>Jiyuuki</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut repudiandae illum sint ad fugit, libero perspiciatis nisi omnis dicta dignissimos at eveniet dolorum praesentium animi magnam sequi neque ex et.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis aperiam eum aliquid quis quidem itaque minima eveniet ratione delectus quasi, magnam culpa ex quia impedit perferendis, fugit excepturi rerum dolores.
-    </p>
-  </div>
+  <Info v-if="infos.login" :infos="infos" />
 </template>
 
 <script>
-
+import Info from '@/components/Info.vue'
+import InfoService from '/services/GitHubApiService.js'
+import { onMounted, ref } from 'vue'
 export default {
   name: 'Home',
   components: {
+    Info
+  },
+  setup() {
+    const infos = ref({})
+    const getInfo = () => {
+      InfoService.getInfo().then((response) => {
+        infos.value = response.data
+      }).catch((error) => {
+        return console.log(error)
+      })
+    }
+    onMounted(() => {
+      console.log('in mounted!')
+      getInfo()
+    })
+    return {
+      infos
+    }
   }
 }
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>
