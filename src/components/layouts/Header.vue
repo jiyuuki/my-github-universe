@@ -1,5 +1,5 @@
 <template>
-  <div>Header</div>
+  <div>My universe</div>
 </template>
 
 <script>
