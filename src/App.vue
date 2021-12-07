@@ -4,10 +4,18 @@
       <NavBar :informations="informations" />
     </el-aside>
     <el-container>
-      <el-header><Header /></el-header>
-      <h1>{{ string }}</h1>
-      <el-main><router-view :informations="informations" /></el-main>
-      <el-footer><Footer /></el-footer>
+      <el-header>
+        <Header />
+      </el-header>
+      <h1>
+        {{ stringg }}
+      </h1>
+      <el-main>
+        <router-view :informations="informations" />
+      </el-main>
+      <el-footer>
+        <Footer />
+      </el-footer>
     </el-container>
   </el-container>
 </template>
@@ -21,6 +29,7 @@ import InformationService from '/services/ApiService.js'
 
 export default {
   name: 'App',
+
   components: {
     ElContainer,
     ElAside,
@@ -31,27 +40,29 @@ export default {
     ElHeader,
     ElFooter,
   },
+
   setup() {
-    const string = ref('click on run to change me')
+    const stringg = ref('click on run to change me')
     const informations = ref({})
     const emitter = inject('emitter')
     const getInformation = () => {
       InformationService.getInformation().then((response) => {
         informations.value = response.data
       }).catch((error) => {
-        return console.log(error)
+        console.log(error)
+      }).finally(() =>{
+        //
       })
     }
     onMounted(() => {
       emitter.on('changestring', (value) => {
-        // set value on string
-        console.log({ value: value })
+        stringg.value = value
+        console.log({ value })
       })
-      console.log({ string: string.value })
       getInformation()
     })
     return {
-      string,
+      stringg,
       informations,
       getInformation
     }
@@ -97,15 +108,6 @@ a {
 
 body > .el-container {
   margin-bottom: 40px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
 }
 
 .el-menu {
