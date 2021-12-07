@@ -1,10 +1,19 @@
 <template>
   <div>
-    <el-col :span="12" class="copyright">
+    <el-col :span="6" class="copyright">
       <span>© 2021 Salma EL HAJRAOUI, </span>
       👾
     </el-col>
-    <el-col :span="12" class="social-media">
+    <el-col :span="6">
+      <el-button
+        @click="emitEventRun"
+        type="primary"
+        round
+      >
+        Run
+      </el-button>
+    </el-col>
+    <el-col :span="6" class="social-media">
       Say Hi on
       <a target="_blank" href="https://twitter.com/SalmaElHajraoui">
         Twitter
@@ -18,9 +27,21 @@
 </template>
 
 <script>
+import { inject } from 'vue'
+import { ElButton } from 'element-plus'
 export default {
   name: 'Footer',
   components: {
+    ElButton
+  },
+  setup() {
+    const emitter = inject('emitter')
+    const emitEventRun = () => {
+      emitter.emit('changestring', 'ruuuuuuuuuuuuun')
+    }
+    return {
+      emitEventRun
+    }
   }
 }
 </script>

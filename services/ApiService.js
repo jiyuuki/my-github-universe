@@ -10,7 +10,7 @@ const apiClient = axios.create({
 })
 
 export default {
-  getInfo() {
+  getInformation() {
     return apiClient.get('/users/jiyuuki')
   },
   getRepos() {

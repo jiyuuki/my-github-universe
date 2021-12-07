@@ -1,20 +1,23 @@
 <template>
   <el-container>
     <el-aside width="200px">
-      <NavBar />
+      <NavBar :informations="informations" />
     </el-aside>
     <el-container>
       <el-header><Header /></el-header>
-      <el-main><router-view /></el-main>
+      <h1>{{ string }}</h1>
+      <el-main><router-view :informations="informations" /></el-main>
       <el-footer><Footer /></el-footer>
     </el-container>
   </el-container>
 </template>
 <script>
+import { ref, onMounted, inject } from 'vue'
 import { ElContainer, ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
 import NavBar from '@/components/layouts/NavBar.vue'
 import Header from '@/components/layouts/Header.vue'
 import Footer from '@/components/layouts/Footer.vue'
+import InformationService from '/services/ApiService.js'
 
 export default {
   name: 'App',
@@ -29,8 +32,28 @@ export default {
     ElFooter,
   },
   setup() {
+    const string = ref('click on run to change me')
+    const informations = ref({})
+    const emitter = inject('emitter')
+    const getInformation = () => {
+      InformationService.getInformation().then((response) => {
+        informations.value = response.data
+      }).catch((error) => {
+        return console.log(error)
+      })
+    }
+    onMounted(() => {
+      emitter.on('changestring', (value) => {
+        // set value on string
+        console.log({ value: value })
+      })
+      console.log({ string: string.value })
+      getInformation()
+    })
     return {
-      //
+      string,
+      informations,
+      getInformation
     }
   }
 }

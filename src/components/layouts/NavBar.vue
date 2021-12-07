@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <el-avatar src="https://avatars.githubusercontent.com/u/11775487?s=400&u=b866830ab6d64eaa2122aa01773bc2af25886d37&v=4" />
+    <el-avatar :src="informations.avatar_url" />
     <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
@@ -40,6 +40,12 @@ import { ElMenu, ElMenuItem, ElAvatar } from 'element-plus'
 
 export default {
   name: 'NavBar',
+  props: {
+    informations: {
+      type: Object,
+      required: true
+    }
+  },
   components: {
     ElMenu,
     ElMenuItem,

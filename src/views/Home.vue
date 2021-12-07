@@ -1,37 +1,23 @@
 <template>
-  <Info v-if="infos.login" :infos="infos" />
+  <InfoRepository :informations="informations" />
 </template>
 
 <script>
-import Info from '@/components/InfoRepository.vue'
-import InfoService from '/services/GitHubApiService.js'
-import { onMounted, ref } from 'vue'
-
-import Emitter from 'tiny-emitter'
+import InfoRepository from '@/components/InfoRepository.vue'
 
 export default {
   name: 'Home',
+  props: {
+    informations: {
+      type: Object,
+      required: true
+    }
+  },
   components: {
-    Info
+    InfoRepository
   },
   setup() {
-    const infos = ref({})
-    const emitter = new Emitter()
-    const getInfo = () => {
-      InfoService.getInfo().then((response) => {
-        infos.value = response.data
-      }).catch((error) => {
-        return console.log(error)
-      })
-    }
-    onMounted(() => {
-      console.log('in mounted!')
-      getInfo()
-    })
-    return {
-      infos,
-      emitter
-    }
+    //
   }
 }
 </script>
