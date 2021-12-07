@@ -3,9 +3,12 @@
 </template>
 
 <script>
-import Info from '@/components/Info.vue'
+import Info from '@/components/InfoRepository.vue'
 import InfoService from '/services/GitHubApiService.js'
 import { onMounted, ref } from 'vue'
+
+import Emitter from 'tiny-emitter'
+
 export default {
   name: 'Home',
   components: {
@@ -13,6 +16,7 @@ export default {
   },
   setup() {
     const infos = ref({})
+    const emitter = new Emitter()
     const getInfo = () => {
       InfoService.getInfo().then((response) => {
         infos.value = response.data
@@ -25,7 +29,8 @@ export default {
       getInfo()
     })
     return {
-      infos
+      infos,
+      emitter
     }
   }
 }

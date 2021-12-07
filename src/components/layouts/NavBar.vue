@@ -4,8 +4,6 @@
     <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
@@ -16,19 +14,19 @@
           <span>Jiyuuki</span>
         </el-menu-item>
       </router-link>
-      <router-link to="/repos">
+      <router-link to="/repositories">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>Repos</span>
         </el-menu-item>
       </router-link>
-      <router-link to="/who-follow-me">
+      <router-link to="/followers">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>Who follow me</span>
         </el-menu-item>
       </router-link>
-      <router-link to="/i-follow">
+      <router-link to="/following">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>I follow</span>
@@ -48,15 +46,8 @@ export default {
     ElAvatar,
   },
   setup() {
-    const handleOpen = (key, keyPath) => {
-      // console.log(key, keyPath)
-    }
-    const handleClose = (key, keyPath) => {
-      // console.log(key, keyPath)
-    }
     return {
-      handleOpen,
-      handleClose
+      //
     }
   }
 }

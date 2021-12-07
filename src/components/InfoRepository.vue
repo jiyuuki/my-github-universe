@@ -1,5 +1,5 @@
 <template>
-  <div class="info">
+  <div class="info-repository">
     <h1>{{ infos.login }}</h1>
     <p>name : {{ infos.name }}</p>
   </div>
@@ -12,6 +12,6 @@ export default {
       required: true
     }
   },
-  name: 'Info',
+  name: 'InfoRepository',
 }
 </script>

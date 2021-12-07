@@ -11,7 +11,6 @@
   </el-container>
 </template>
 <script>
-// import { ref, computed, watch } from 'vue'
 import { ElContainer, ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
 import NavBar from '@/components/layouts/NavBar.vue'
 import Header from '@/components/layouts/Header.vue'
@@ -30,15 +29,8 @@ export default {
     ElFooter,
   },
   setup() {
-    const handleOpen = (key, keyPath) => {
-      console.log(key, keyPath)
-    }
-    const handleClose = (key, keyPath) => {
-      console.log(key, keyPath)
-    }
     return {
-      handleOpen,
-      handleClose
+      //
     }
   }
 }
@@ -49,6 +41,8 @@ body {
   margin: 0px;
   padding: 0;
   min-height: 793px;
+  height: 100%;
+  display: grid;
 }
 a {
   cursor: pointer;
@@ -60,6 +54,8 @@ a {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100%;
+  display: grid;
 }
 
 .el-aside {

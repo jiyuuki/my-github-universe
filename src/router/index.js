@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
-import Repos from '@/views/Repos.vue'
-import WhoFllowMe from '@/views/WhoFllowMe.vue'
-import IFllow from '@/views/IFllow.vue'
+import Repository from '@/views/Repository.vue'
+import Followers from '@/views/Followers.vue'
+import Following from '@/views/Following.vue'
 
 const routes = [
   {
@@ -11,19 +11,19 @@ const routes = [
     component: Home
   },
   {
-    path: '/repos',
-    name: 'Repos',
-    component: Repos
+    path: '/repositories',
+    name: 'Repositories',
+    component: Repository
   },
   {
-    path: '/who-follow-me',
-    name: 'WhoFllowMe',
-    component: WhoFllowMe
+    path: '/followers',
+    name: 'Followers',
+    component: Followers
   },
   {
-    path: '/i-follow',
-    name: 'IFllow',
-    component: IFllow
+    path: '/following',
+    name: 'Following',
+    component: Following
   },
 ]
 
