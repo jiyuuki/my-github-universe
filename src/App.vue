@@ -7,9 +7,6 @@
       <el-header>
         <Header />
       </el-header>
-      <h1>
-        {{ stringg }}
-      </h1>
       <el-main>
         <router-view :informations="informations" />
       </el-main>
@@ -20,7 +17,7 @@
   </el-container>
 </template>
 <script>
-import { ref, onMounted, inject } from 'vue'
+import { ref, onMounted } from 'vue'
 import { ElContainer, ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
 import NavBar from '@/components/layouts/NavBar.vue'
 import Header from '@/components/layouts/Header.vue'
@@ -42,9 +39,7 @@ export default {
   },
 
   setup() {
-    const stringg = ref('click on run to change me')
     const informations = ref({})
-    const emitter = inject('emitter')
     const getInformation = () => {
       InformationService.getInformation().then((response) => {
         informations.value = response.data
@@ -55,14 +50,9 @@ export default {
       })
     }
     onMounted(() => {
-      emitter.on('changestring', (value) => {
-        stringg.value = value
-        console.log({ value })
-      })
       getInformation()
     })
     return {
-      stringg,
       informations,
       getInformation
     }
@@ -82,6 +72,7 @@ a {
   cursor: pointer;
   text-decoration: none;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
