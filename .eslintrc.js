@@ -7,8 +7,6 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:vue/strongly-recommended',
-    'plugin:nuxt/recommended',
-    // '@nuxtjs/eslint-config-typescript'
   ],
   parserOptions: {
     ecmaVersion: 2020,

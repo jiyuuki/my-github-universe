@@ -1,29 +1,51 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home.vue'
-import Repository from '@/views/Repository.vue'
-import Followers from '@/views/Followers.vue'
-import Following from '@/views/Following.vue'
+import SearchLayout from '@/layouts/search.vue'
+import UniverseLayout from '@/layouts/universe.vue'
+
+import Search from '@/views/search/Search.vue'
+import Universe from '@/views/universe/Universe.vue'
+import Repositories from '@/views/universe/Repositories.vue'
+import Followers from '@/views/universe/Followers.vue'
+import Following from '@/views/universe/Following.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'SearchLayout',
+    component: SearchLayout,
+    children: [
+      {
+        path: '',
+        component: Search
+      }
+    ]
   },
   {
-    path: '/repositories',
-    name: 'Repositories',
-    component: Repository,
-  },
-  {
-    path: '/followers',
-    name: 'Followers',
-    component: Followers,
-  },
-  {
-    path: '/following',
-    name: 'Following',
-    component: Following,
+    path: '/universe/:username',
+    name: 'UniverseLayout',
+    component: UniverseLayout,
+    children: [
+      {
+        path: '',
+        name: 'Universe',
+        component: Universe,
+      },
+      {
+        path: '/repositories',
+        name: 'Repositories',
+        component: Repositories,
+      },
+      {
+        path: '/followers',
+        name: 'Followers',
+        component: Followers,
+      },
+      {
+        path: '/following',
+        name: 'Following',
+        component: Following,
+      },
+    ]
   },
 ]
 

@@ -6,7 +6,7 @@
 import InfoRepository from '@/components/InfoRepository.vue'
 
 export default {
-  name: 'Home',
+  name: 'Universe',
   props: {
     informations: {
       type: Object,
