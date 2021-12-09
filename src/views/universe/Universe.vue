@@ -7,18 +7,20 @@ import InfoRepository from '@/components/InfoRepository.vue'
 
 export default {
   name: 'Universe',
+
   props: {
     informations: {
       type: Object,
       required: true
     }
   },
+
   components: {
     InfoRepository
   },
+
   setup() {
     //
   }
 }
 </script>
-<style scoped></style>

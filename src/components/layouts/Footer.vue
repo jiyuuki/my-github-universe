@@ -20,12 +20,13 @@
 <script>
 export default {
   name: 'Footer',
+
   components: {
     //
   },
+
   setup() {
     //
   }
 }
 </script>
-<style scoped></style>

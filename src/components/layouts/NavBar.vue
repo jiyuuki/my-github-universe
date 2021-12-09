@@ -8,25 +8,25 @@
       text-color="#fff"
       active-text-color="#ffd04b"
     >
-      <router-link to="/">
+      <router-link to="/universe/jiyuuki">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>Jiyuuki</span>
         </el-menu-item>
       </router-link>
-      <router-link to="/repositories">
+      <router-link to="/universe/jiyuuki/repositories">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>Repos</span>
         </el-menu-item>
       </router-link>
-      <router-link to="/followers">
+      <router-link to="/universe/jiyuuki/followers">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>Who follow me</span>
         </el-menu-item>
       </router-link>
-      <router-link to="/following">
+      <router-link to="/universe/jiyuuki/following">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>I follow</span>
@@ -35,22 +35,26 @@
     </el-menu>
   </div>
 </template>
+
 <script>
 import { ElMenu, ElMenuItem, ElAvatar } from 'element-plus'
 
 export default {
   name: 'NavBar',
+
   props: {
     informations: {
       type: Object,
       required: true
     }
   },
+
   components: {
     ElMenu,
     ElMenuItem,
     ElAvatar,
   },
+
   setup() {
     return {
       //
@@ -58,6 +62,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .el-menu {
   height: 100%;

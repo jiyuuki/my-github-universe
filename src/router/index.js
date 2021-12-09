@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import SearchLayout from '@/layouts/search.vue'
-import UniverseLayout from '@/layouts/universe.vue'
+import SearchLayout from '@/layouts/Search.vue'
+import UniverseLayout from '@/layouts/Universe.vue'
 
 import Search from '@/views/search/Search.vue'
 import Universe from '@/views/universe/Universe.vue'
@@ -31,17 +31,17 @@ const routes = [
         component: Universe,
       },
       {
-        path: '/repositories',
+        path: 'repositories',
         name: 'Repositories',
         component: Repositories,
       },
       {
-        path: '/followers',
+        path: 'followers',
         name: 'Followers',
         component: Followers,
       },
       {
-        path: '/following',
+        path: 'following',
         name: 'Following',
         component: Following,
       },

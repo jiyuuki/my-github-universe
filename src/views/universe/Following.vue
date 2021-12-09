@@ -9,13 +9,10 @@
 </template>
 
 <script>
-
 export default {
   name: 'Following',
+
   components: {
   }
 }
 </script>
-<style scoped>
-
-</style>

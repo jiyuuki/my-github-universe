@@ -1,23 +1,18 @@
 <template>
-  <div>
-    <h1>univers Layout</h1>
-    <el-container>
-      <el-aside width="200px">
-        <NavBar :informations="informations" />
-      </el-aside>
-      <el-container>
-        <el-header>
-          <Header />
-        </el-header>
-        <el-main>
-          <router-view :informations="informations" />
-        </el-main>
-        <el-footer>
-          <Footer />
-        </el-footer>
-      </el-container>
-    </el-container>
-  </div>
+  <el-aside width="200px">
+    <NavBar :informations="informations" />
+  </el-aside>
+  <el-container>
+    <el-header>
+      <Header />
+    </el-header>
+    <el-main>
+      <router-view :informations="informations" />
+    </el-main>
+    <el-footer>
+      <Footer />
+    </el-footer>
+  </el-container>
 </template>
 
 <script>
@@ -26,7 +21,7 @@ import { ElContainer, ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
 import NavBar from '@/components/layouts/NavBar.vue'
 import Header from '@/components/layouts/Header.vue'
 import Footer from '@/components/layouts/Footer.vue'
-import InformationService from '../../services/ApiService'
+import InformationService from '@/services/ApiService'
 
 export default {
   name: 'UniverseLayout',
@@ -44,6 +39,7 @@ export default {
 
   setup() {
     const informations = ref({})
+
     const getInformation = () => {
       InformationService.getInformation().then((response) => {
         informations.value = response.data
@@ -53,17 +49,76 @@ export default {
         //
       })
     }
+
     onMounted(() => {
       alert
       console.log({ informations })
       getInformation()
     })
+
     return {
       informations,
-      getInformation
+      getInformation,
     }
   }
 }
 </script>
 
-<style scoped></style>
+<style>
+.el-aside {
+  background-color: #35495e;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
+}
+
+.el-main {
+  /* background-color: #fff; */
+  background-color: #f4f6f7;
+  color: #333;
+  text-align: center;
+}
+
+.el-menu {
+  height: 100%;
+  background-color: #35495e;
+  width: 201px;
+}
+.menu {
+  height: 100%;
+  overflow: hidden;
+}
+.el-menu-item.is-active {
+  color: var(--el-menu-text-color);
+}
+.el-menu-item:hover {
+  background-color: var(--el-menu-text-color);
+  color: #35495e;
+}
+.el-header {
+  background-color: #fff;
+  color: #35495e;
+  text-align: center;
+  line-height: 60px;
+}
+.el-footer {
+  background-color: #fff;
+  color: #35495e;
+  text-align: center;
+  line-height: 60px;
+  font-size: 12px;
+}
+.social-media {
+  float: right;
+  font-weight: bold;
+}
+.social-media a {
+  color: #6f58bb
+}
+.copyright span {
+  font-weight: bold;
+}
+.el-col {
+  border-radius: 4px;
+}
+</style>

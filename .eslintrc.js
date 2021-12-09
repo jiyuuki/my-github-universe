@@ -6,12 +6,13 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:vue/strongly-recommended',
+    'plugin:vue/vue3-strongly-recommended',
   ],
   parserOptions: {
     ecmaVersion: 2020,
   },
   rules: {
+    'vue/padding-line-between-blocks': 2,
     'comma-dangle': [2, 'only-multiline'],
     'space-before-function-paren': [2, 'never'],
     'vue/no-v-html': 'off',

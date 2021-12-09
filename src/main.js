@@ -6,14 +6,13 @@ import router from './router'
 import store from './store'
 import mitt from 'mitt'
 
-const emitter = mitt()
 const app = createApp(App)
 
+const emitter = mitt()
 app.provide('emitter', emitter)
 
 app.use(store)
 app.use(router)
-
 app.use(ElementPlus)
 
 app.mount('#app')

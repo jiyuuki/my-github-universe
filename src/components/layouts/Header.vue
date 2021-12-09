@@ -5,8 +5,12 @@
 <script>
 export default {
   name: 'Header',
+
   components: {
+  },
+
+  setup() {
+
   }
 }
 </script>
-<style scoped></style>

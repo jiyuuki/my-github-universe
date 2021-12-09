@@ -11,14 +11,16 @@
     <p>Following : {{ informations.following }}</p>
   </div>
 </template>
+
 <script>
 export default {
+  name: 'InfoRepository',
+
   props: {
     informations: {
       type: Object,
       required: true
     }
   },
-  name: 'InfoRepository',
 }
 </script>

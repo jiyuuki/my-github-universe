@@ -6,7 +6,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'SearchLayout',
 
@@ -17,5 +16,3 @@ export default {
   }
 }
 </script>
-
-<style scoped></style>
