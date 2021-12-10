@@ -2,10 +2,11 @@ import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import App from './App.vue'
-import './index.css'
+import './styles/index.css'
 import router from './router'
 import store from './store'
 import mitt from 'mitt'
+import './assets/tailwind.css'
 
 const app = createApp(App)
 

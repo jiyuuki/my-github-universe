@@ -17,7 +17,7 @@
 
 <script>
 import { ref, onMounted } from 'vue'
-import { ElContainer, ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
+import { ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
 import NavBar from '@/components/layouts/NavBar.vue'
 import Header from '@/components/layouts/Header.vue'
 import Footer from '@/components/layouts/Footer.vue'
@@ -27,7 +27,6 @@ export default {
   name: 'UniverseLayout',
 
   components: {
-    ElContainer,
     ElAside,
     ElMain,
     Header,

@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <h1>Search layout</h1>
-    <router-view />
-  </div>
+  <router-view />
 </template>
 
 <script>
@@ -10,9 +7,7 @@ export default {
   name: 'SearchLayout',
 
   setup() {
-    return {
-      //
-    }
+    //
   }
 }
 </script>
