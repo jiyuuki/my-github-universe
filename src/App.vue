@@ -1,17 +1,15 @@
 <template>
-  <el-container>
-    <router-view />
-  </el-container>
+  <router-view />
 </template>
 
 <script>
-import { ElContainer } from 'element-plus'
+// import { ElContainer } from 'element-plus'
 
 export default {
   name: 'App',
 
   components: {
-    ElContainer,
+    // ElContainer,
   },
 
   setup() {

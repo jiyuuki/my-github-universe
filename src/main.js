@@ -7,6 +7,8 @@ import router from './router'
 import store from './store'
 import mitt from 'mitt'
 import './assets/tailwind.css'
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 const app = createApp(App)
 

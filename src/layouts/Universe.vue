@@ -1,17 +1,19 @@
 <template>
-  <el-aside width="200px">
-    <NavBar :informations="informations" />
-  </el-aside>
   <el-container>
-    <el-header>
-      <Header />
-    </el-header>
-    <el-main>
-      <router-view :informations="informations" />
-    </el-main>
-    <el-footer>
-      <Footer />
-    </el-footer>
+    <el-aside width="200px">
+      <NavBar :informations="informations" />
+    </el-aside>
+    <el-container>
+      <el-header>
+        <Header />
+      </el-header>
+      <el-main>
+        <router-view :informations="informations" />
+      </el-main>
+      <el-footer>
+        <Footer />
+      </el-footer>
+    </el-container>
   </el-container>
 </template>
 
