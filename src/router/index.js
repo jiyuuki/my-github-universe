@@ -55,9 +55,9 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  if (to.name !== 'Search') next({ name: 'Search' })
-  else next()
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.name !== 'Search') next({ name: 'Search' })
+//   else next()
+// })
 
 export default router
