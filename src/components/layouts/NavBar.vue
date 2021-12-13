@@ -8,25 +8,25 @@
       text-color="#fff"
       active-text-color="#ffd04b"
     >
-      <router-link to="/universe/jiyuuki">
+      <router-link :to="{ name: 'Universe', params: { username: 'jiyuuki'} }">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>Jiyuuki</span>
         </el-menu-item>
       </router-link>
-      <router-link to="/universe/jiyuuki/repositories">
+      <router-link :to="{ name: 'Repositories', params: { username: 'jiyuuki'} }">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>Repos</span>
         </el-menu-item>
       </router-link>
-      <router-link to="/universe/jiyuuki/followers">
+      <router-link :to="{ name: 'Followers', params: { username: 'jiyuuki'} }">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>Who follow me</span>
         </el-menu-item>
       </router-link>
-      <router-link to="/universe/jiyuuki/following">
+      <router-link :to="{ name: 'Following', params: { username: 'jiyuuki'} }">
         <el-menu-item index="4">
           <i class="el-icon-setting" />
           <span>I follow</span>
