@@ -1,14 +1,15 @@
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import './index.css'
 import App from './App.vue'
-import './styles/index.css'
 import router from './router'
 import store from './store'
 import mitt from 'mitt'
-import './assets/tailwind.css'
+import './index.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+import './assets/tailwind.css'
 
 const app = createApp(App)
 
