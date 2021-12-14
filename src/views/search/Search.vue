@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-900 pattern">
     <div class="container px-12 mx-auto">
-      <nav class="flex flex-col py-2 sm:flex-row sm:justify-between sm:items-center">
+      <nav class="flex flex-col py-8 sm:flex-row sm:justify-between sm:items-center">
         <div>
           <a href="#" class="text-2xl font-semibold text-white hover:text-gray-300">
             <i class="fas fa-meteor fa-2x" />
@@ -10,7 +10,7 @@
         </div>
       </nav>
       <div class="flex h-screen justify-center items-center">
-        <div class="flex mt-12 lg:justify-center lg:mt-25 w-9/12">
+        <div class="flex lg:justify-center lg:mt-25 w-9/12">
           <div class="bg-white rounded-lg dark:bg-gray-800 w-9/12">
             <div class="p-5 text-center">
               <h3 class="text-2xl font-semibold text-gray-700 dark:text-white fo">
@@ -65,6 +65,6 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  filter: blur(1px);
+  /* filter: blur(1px); */
 }
 </style>

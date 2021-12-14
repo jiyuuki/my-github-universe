@@ -22,9 +22,9 @@ export default {
 body {
   margin: 0px;
   padding: 0;
-  min-height: 793px;
   height: 100%;
   display: grid;
+  overflow: hidden;
 }
 a {
   cursor: pointer;

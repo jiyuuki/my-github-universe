@@ -1,11 +1,11 @@
 <template>
-  <el-container>
+  <el-container class="h-screen">
     <el-aside width="200px">
-      <NavBar :informations="informations" />
+      <SideBar :informations="informations" />
     </el-aside>
     <el-container>
       <el-header>
-        <Header />
+        <NavBar />
       </el-header>
       <el-main>
         <router-view :informations="informations" />
@@ -20,8 +20,9 @@
 <script>
 import { ref, onMounted } from 'vue'
 import { ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
+import SideBar from '@/components/layouts/SideBar.vue'
+// import Header from '@/components/layouts/Header.vue'
 import NavBar from '@/components/layouts/NavBar.vue'
-import Header from '@/components/layouts/Header.vue'
 import Footer from '@/components/layouts/Footer.vue'
 import InformationService from '@/services/ApiService'
 
@@ -31,8 +32,8 @@ export default {
   components: {
     ElAside,
     ElMain,
-    Header,
     NavBar,
+    SideBar,
     Footer,
     ElHeader,
     ElFooter,
@@ -67,7 +68,7 @@ export default {
 
 <style>
 .el-aside {
-  background-color: #35495e;
+  background-color: #111827;
   color: #333;
   text-align: center;
   line-height: 200px;
@@ -81,12 +82,10 @@ export default {
 }
 
 .el-menu {
-  height: 100%;
   background-color: #35495e;
   width: 201px;
 }
 .menu {
-  height: 100%;
   overflow: hidden;
 }
 .el-menu-item.is-active {
