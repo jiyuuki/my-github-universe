@@ -9,8 +9,8 @@
           </a>
         </div>
       </nav>
-      <div class="flex h-screen justify-center items-center">
-        <div class="flex lg:justify-center lg:mt-25 w-9/12">
+      <div class="flex h-screen justify-center items-center content">
+        <div class="flex lg:justify-center lg:mt-25 w-9/12 form-search">
           <div class="bg-white rounded-lg dark:bg-gray-800 w-9/12">
             <div class="p-5 text-center">
               <h3 class="text-2xl font-semibold text-gray-700 dark:text-white fo">
@@ -66,5 +66,16 @@ export default {
   right: 0;
   bottom: 0;
   /* filter: blur(1px); */
+}
+
+.content {
+  position: relative;
+}
+
+.form-search {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

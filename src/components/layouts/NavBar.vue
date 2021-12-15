@@ -23,6 +23,6 @@ export default {
 .avatar{
   float: right;
   margin: 5px;
-  border: 2px solid #111827;
+  border: 2px solid #f9fafb;
 }
 </style>

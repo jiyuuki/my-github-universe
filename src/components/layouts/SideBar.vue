@@ -1,6 +1,8 @@
 <template>
   <div class="side-bar">
-    <div class="logo"><i class="fas fa-meteor fa-3x" /></div>
+    <div class="logo">
+      <i class="icon-logo fas fa-meteor fa-3x" />
+    </div>
     <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
@@ -78,10 +80,17 @@ export default {
   color: #35495e;
 }
 .logo {
-    text-align: center;
-    width: 100%;
-    height: 20%;
-    color: #fff;
+  text-align: center;
+  width: 100%;
+  height: 20%;
+  color: #fff;
+  position: relative;
+}
+.icon-logo {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .side-bar {
   height: 100%;

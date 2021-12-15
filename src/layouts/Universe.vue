@@ -96,17 +96,17 @@ export default {
   color: #35495e;
 }
 .el-header {
-  background-color: #fff;
+  background-color: #f4f6f7;
   color: #35495e;
   text-align: center;
   line-height: 60px;
 }
 .el-footer {
-  background-color: #fff;
+  background-color: #f4f6f7;
   color: #35495e;
   text-align: center;
-  line-height: 60px;
-  font-size: 12px;
+  line-height: 50px;
+  font-size: 10px;
 }
 .social-media {
   float: right;
