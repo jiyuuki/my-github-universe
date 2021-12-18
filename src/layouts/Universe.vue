@@ -8,6 +8,7 @@
         <NavBar />
       </el-header>
       <el-main>
+        <h1>routerUsername : {{ routerUsername }}</h1>
         <router-view :informations="informations" />
       </el-main>
       <el-footer>
@@ -18,13 +19,13 @@
 </template>
 
 <script>
+import { useRoute } from 'vue-router'
+import { useStore } from 'vuex'
 import { ref, onMounted } from 'vue'
 import { ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
 import SideBar from '@/components/layouts/SideBar.vue'
-// import Header from '@/components/layouts/Header.vue'
 import NavBar from '@/components/layouts/NavBar.vue'
 import Footer from '@/components/layouts/Footer.vue'
-import InformationService from '@/services/ApiService'
 
 export default {
   name: 'UniverseLayout',
@@ -40,27 +41,24 @@ export default {
   },
 
   setup() {
+    const route = useRoute()
+    const store = useStore()
+    const routerUsername = route.params.username
     const informations = ref({})
 
-    const getInformation = () => {
-      InformationService.getInformation().then((response) => {
-        informations.value = response.data
-      }).catch((error) => {
-        console.log(error)
-      }).finally(() => {
-        //
-      })
-    }
-
     onMounted(() => {
-      alert
-      console.log({ informations })
-      getInformation()
+      console.log('mounted')
+      store.dispatch('loadInformations', routerUsername)
+      informations.value = store.getters.getInformations
+      console.log({
+        informations: informations,
+        routerUsername: routerUsername
+      })
     })
 
     return {
       informations,
-      getInformation,
+      routerUsername,
     }
   }
 }

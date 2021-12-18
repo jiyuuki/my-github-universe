@@ -1,8 +1,9 @@
 import axios from 'axios'
+const baseUrl = 'https://api.github.com/users/'
 
 const apiClient = axios.create({
-  // baseURL: 'https://api.github.com',
-  baseURL: 'https://my-json-server.typicode.com/jiyuuki/my-github-universe',
+  // baseURL: 'https://my-json-server.typicode.com/jiyuuki/my-github-universe',
+  baseURL: baseUrl,
   withCredentials: false,
   headers: {
     Accept: 'application/json',
@@ -11,19 +12,19 @@ const apiClient = axios.create({
 })
 
 export default {
-  getInformation() {
-    return apiClient.get('/informations')
+  getInformation(username) {
+    return apiClient.get(username)
   },
-  getRepos() {
-    return apiClient.get('/repositories')
+  getRepositories(username) {
+    return apiClient.get(username + '/repos')
   },
-  getFollowers() {
-    return apiClient.get('/followers')
+  getFollowers(username) {
+    return apiClient.get(username + '/followers')
   },
-  getFollowing() {
-    return apiClient.get('/following')
+  getFollowing(username) {
+    return apiClient.get(username + '/following')
   },
-  getOrganizations() {
-    return apiClient.get('/organisations')
+  getOrganizations(username) {
+    return apiClient.get(username + '/orgs')
   }
 }

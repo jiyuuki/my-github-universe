@@ -25,6 +25,7 @@ const routes = [
     path: '/universe/:username',
     name: 'UniverseLayout',
     component: UniverseLayout,
+    params: ['username'],
     children: [
       {
         path: '',
