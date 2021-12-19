@@ -8,7 +8,6 @@
         <NavBar />
       </el-header>
       <el-main>
-        <h1>routerUsername : {{ routerUsername }}</h1>
         <router-view :informations="informations" />
       </el-main>
       <el-footer>
@@ -19,9 +18,9 @@
 </template>
 
 <script>
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import { ref, onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 import { ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
 import SideBar from '@/components/layouts/SideBar.vue'
 import NavBar from '@/components/layouts/NavBar.vue'
@@ -42,18 +41,22 @@ export default {
 
   setup() {
     const route = useRoute()
+    const router = useRouter()
     const store = useStore()
     const routerUsername = route.params.username
-    const informations = ref({})
 
     onMounted(() => {
-      console.log('mounted')
-      store.dispatch('loadInformations', routerUsername)
-      informations.value = store.getters.getInformations
-      console.log({
-        informations: informations,
-        routerUsername: routerUsername
+      store.dispatch('loadInformations', routerUsername).catch((error) => {
+        router.push({
+          name: 'Search',
+          params: { error: error }
+        })
+        console.log({ error })
       })
+    })
+
+    const informations = computed(() => {
+      return store.getters['getInformations']
     })
 
     return {

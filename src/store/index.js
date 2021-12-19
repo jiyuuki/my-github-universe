@@ -19,8 +19,6 @@ export default createStore({
       InformationService.getInformation(username).then((response) => {
         commit('SET_INFORMATIONS', response.data)
         commit('SET_USERNAME', username)
-      }).catch((error) => {
-        console.log(error)
       })
     }
   },
