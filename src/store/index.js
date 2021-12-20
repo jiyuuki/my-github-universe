@@ -16,9 +16,12 @@ export default createStore({
   },
   actions: {
     loadInformations({ commit }, username) {
-      InformationService.getInformation(username).then((response) => {
+      return InformationService.getInformation(username).then((response) => {
+        console.log('test')
         commit('SET_INFORMATIONS', response.data)
         commit('SET_USERNAME', username)
+      }).catch((error) => {
+        throw (error)
       })
     }
   },

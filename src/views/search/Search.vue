@@ -9,6 +9,7 @@
           </a>
         </div>
       </nav>
+      <h1 class="text-white" v-show="error">Opps {{ error }}</h1>
       <div class="flex h-screen justify-center items-center content">
         <div class="flex lg:justify-center lg:mt-25 w-9/12 form-search">
           <div class="bg-white rounded-lg dark:bg-gray-800 w-9/12">
@@ -41,6 +42,13 @@ import { ref, onMounted } from 'vue'
 
 export default {
   name: 'Search',
+
+  props: {
+    error: {
+      type: String,
+      required: true
+    }
+  },
 
   setup() {
     const username = ref(null)

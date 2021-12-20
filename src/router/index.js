@@ -17,6 +17,7 @@ const routes = [
       {
         path: '',
         name: 'Search',
+        props: true,
         component: Search
       }
     ]

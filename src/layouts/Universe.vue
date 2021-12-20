@@ -47,11 +47,11 @@ export default {
 
     onMounted(() => {
       store.dispatch('loadInformations', routerUsername).catch((error) => {
+        console.log({ error })
         router.push({
           name: 'Search',
-          params: { error: error }
+          params: { error: error.message }
         })
-        console.log({ error })
       })
     })
 
