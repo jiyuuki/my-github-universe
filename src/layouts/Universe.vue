@@ -20,7 +20,7 @@
 <script>
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import { onMounted, computed } from 'vue'
+import { onMounted, computed, ref } from 'vue'
 import { ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
 import SideBar from '@/components/layouts/SideBar.vue'
 import NavBar from '@/components/layouts/NavBar.vue'
@@ -40,13 +40,18 @@ export default {
   },
 
   setup() {
+    const loader = ref(true)
     const route = useRoute()
     const router = useRouter()
     const store = useStore()
     const routerUsername = route.params.username
 
     onMounted(() => {
-      store.dispatch('loadInformations', routerUsername).catch((error) => {
+      store.dispatch('loadInformations', routerUsername).then(() => {
+        loader.value = false
+        console.log({ loader: loader.value })
+        // add UI for this loader
+      }).catch((error) => {
         router.push({
           name: 'Search',
           params: { error: error.message }
