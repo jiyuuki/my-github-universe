@@ -15,14 +15,10 @@ export default createStore({
     }
   },
   actions: {
-    loadInformations({ commit }, username) {
-      return InformationService.getInformation(username).then((response) => {
-        console.log('test')
-        commit('SET_INFORMATIONS', response.data)
-        commit('SET_USERNAME', username)
-      }).catch((error) => {
-        throw (error)
-      })
+    async loadInformations({ commit }, username) {
+      const response = await InformationService.getInformation(username)
+      commit('SET_INFORMATIONS', response.data)
+      commit('SET_USERNAME', username)
     }
   },
   getters: {
