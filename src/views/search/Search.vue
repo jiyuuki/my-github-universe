@@ -1,15 +1,14 @@
 <template>
+  <el-button plain @click="errorNotification" />
   <div class="bg-gray-900 pattern">
     <div class="container px-12 mx-auto">
       <nav class="flex flex-col py-8 sm:flex-row sm:justify-between sm:items-center">
         <div>
           <a href="#" class="text-2xl font-semibold text-white hover:text-gray-300">
             <i class="fas fa-meteor fa-2x" />
-            <!-- <i class="fas fa-user-astronaut fa-2x" /> -->
           </a>
         </div>
       </nav>
-      <h1 class="text-white" v-show="error">Opps {{ error }}</h1>
       <div class="flex h-screen justify-center items-center content">
         <div class="flex lg:justify-center lg:mt-25 w-9/12 form-search">
           <div class="bg-white rounded-lg dark:bg-gray-800 w-9/12">
@@ -17,18 +16,17 @@
               <h3 class="text-2xl font-semibold text-gray-700 dark:text-white fo">
                 Search
               </h3>
-
-              <!-- <form action="#"> -->
-              <div class="m-4">
-                <input
-                  ref="username"
-                  class="block w-full px-4 py-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                  type="tezt"
-                  placeholder="Username"
-                  aria-label="Usename"
-                >
-              </div>
-              <!-- </form> -->
+              <form action="#">
+                <div class="m-4">
+                  <input
+                    ref="username"
+                    class="block w-full px-4 py-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    type="tezt"
+                    placeholder="Username"
+                    aria-label="Usename"
+                  >
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -39,6 +37,7 @@
 
 <script>
 import { ref, onMounted } from 'vue'
+import { ElNotification } from 'element-plus'
 
 export default {
   name: 'Search',
@@ -46,23 +45,36 @@ export default {
   props: {
     error: {
       type: String,
-      required: true
+      default: null,
+      required: false
     }
   },
 
-  setup() {
+  setup(props) {
     const username = ref(null)
+
+    const errorNotification = (error) => {
+      if (error === null) return false
+      ElNotification({
+        title: 'Error',
+        message: error,
+        type: 'error',
+      })
+    }
 
     const searchUniverse = () => {
       console.log({ username: username.value })
     }
 
     onMounted(() => {
+      errorNotification(props.error)
       username.value.focus()
     })
+
     return {
       username,
-      searchUniverse
+      searchUniverse,
+      errorNotification
     }
   }
 }

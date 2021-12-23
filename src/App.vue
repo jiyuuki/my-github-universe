@@ -3,18 +3,9 @@
 </template>
 
 <script>
-// import { ElContainer } from 'element-plus'
 
 export default {
   name: 'App',
-
-  components: {
-    // ElContainer,
-  },
-
-  setup() {
-    //
-  }
 }
 </script>
 

@@ -4,14 +4,9 @@
 </template>
 
 <script>
-import { ElAvatar } from 'element-plus'
 
 export default {
   name: 'NavBar',
-
-  components: {
-    ElAvatar,
-  },
 
   setup() {
     //

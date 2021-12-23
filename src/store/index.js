@@ -3,7 +3,7 @@ import InformationService from '@/services/ApiService'
 
 export default createStore({
   state: {
-    username: '',
+    username: null,
     informations: {}
   },
   mutations: {
@@ -16,9 +16,14 @@ export default createStore({
   },
   actions: {
     async loadInformations({ commit }, username) {
-      const response = await InformationService.getInformation(username)
-      commit('SET_INFORMATIONS', response.data)
-      commit('SET_USERNAME', username)
+      try {
+        const response = await InformationService.getInformation(username)
+        commit('SET_INFORMATIONS', response.data)
+        commit('SET_USERNAME', username)
+      } catch (error) {
+        commit('SET_USERNAME', null)
+        throw (error)
+      }
     }
   },
   getters: {

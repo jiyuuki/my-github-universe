@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import { ElMenu, ElMenuItem } from 'element-plus'
 
 export default {
   name: 'SideBar',
@@ -49,12 +48,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-
-  components: {
-    ElMenu,
-    ElMenuItem,
-    // ElAvatar,
   },
 
   setup() {

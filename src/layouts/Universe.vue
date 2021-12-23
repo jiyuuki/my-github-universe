@@ -21,7 +21,6 @@
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { onMounted, computed, ref } from 'vue'
-import { ElAside, ElMain, ElHeader, ElFooter } from 'element-plus'
 import SideBar from '@/components/layouts/SideBar.vue'
 import NavBar from '@/components/layouts/NavBar.vue'
 import Footer from '@/components/layouts/Footer.vue'
@@ -30,13 +29,9 @@ export default {
   name: 'UniverseLayout',
 
   components: {
-    ElAside,
-    ElMain,
     NavBar,
     SideBar,
     Footer,
-    ElHeader,
-    ElFooter,
   },
 
   setup() {
