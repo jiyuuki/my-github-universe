@@ -16,17 +16,17 @@
               <h3 class="text-2xl font-semibold text-gray-700 dark:text-white fo">
                 Search
               </h3>
-              <form action="#">
-                <div class="m-4">
-                  <input
-                    ref="username"
-                    class="block w-full px-4 py-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                    type="tezt"
-                    placeholder="Username"
-                    aria-label="Usename"
-                  >
-                </div>
-              </form>
+              <div class="m-4">
+                <input
+                  ref="refInput"
+                  v-model="username"
+                  @keyup.enter.prevent="searchUniverse"
+                  class="block w-full px-4 py-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                  type="text"
+                  placeholder="Username"
+                  aria-label="Usename"
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -45,13 +45,13 @@ export default {
   props: {
     error: {
       type: String,
-      default: null
+      default: null,
     }
   },
 
   setup(props) {
-    const username = ref(null)
-
+    const refInput = ref(null)
+    const username = ref('')
     const errorNotification = (error) => {
       if (error === null) return false
       ElNotification({
@@ -67,10 +67,11 @@ export default {
 
     onMounted(() => {
       errorNotification(props.error)
-      username.value.focus()
+      refInput.value.focus()
     })
 
     return {
+      refInput,
       username,
       searchUniverse,
       errorNotification

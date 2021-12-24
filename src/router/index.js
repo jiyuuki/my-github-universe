@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+// import { useStore } from 'vuex'
+
 import SearchLayout from '@/layouts/Search.vue'
 import UniverseLayout from '@/layouts/Universe.vue'
 
@@ -27,6 +29,7 @@ const routes = [
     name: 'UniverseLayout',
     component: UniverseLayout,
     params: ['username'],
+    props: true,
     children: [
       {
         path: '',
@@ -57,9 +60,9 @@ const router = createRouter({
   routes
 })
 
-// router.beforeEach((to, from, next) => {
-//   if (to.name !== 'Search') next({ name: 'Search' })
-//   else next()
-// })
+router.beforeEach(async(to, from, next) => {
+  if (to.name !== 'Search' && to.name !== 'Universe') next({ name: 'Search' })
+  else next()
+})
 
 export default router

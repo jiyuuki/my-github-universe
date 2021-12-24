@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { onMounted, computed, ref } from 'vue'
 import SideBar from '@/components/layouts/SideBar.vue'
@@ -27,23 +27,26 @@ import Footer from '@/components/layouts/Footer.vue'
 
 export default {
   name: 'UniverseLayout',
-
+  props: {
+    username: {
+      type: String,
+      required: true
+    }
+  },
   components: {
     NavBar,
     SideBar,
     Footer,
   },
 
-  setup() {
+  setup(props) {
     const loader = ref(true)
-    const route = useRoute()
     const router = useRouter()
     const store = useStore()
-    const routerUsername = route.params.username
 
     const loadInformations = async() => {
       try {
-        await store.dispatch('loadInformations', routerUsername)
+        await store.dispatch('loadInformations', props.username)
         loader.value = false
         // add UI for this loader
       } catch (error) {
@@ -63,7 +66,6 @@ export default {
 
     return {
       informations,
-      routerUsername,
     }
   }
 }
