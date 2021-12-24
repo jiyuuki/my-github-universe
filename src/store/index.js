@@ -21,8 +21,7 @@ export default createStore({
         commit('SET_INFORMATIONS', response.data)
         commit('SET_USERNAME', username)
       } catch (error) {
-        commit('SET_USERNAME', null)
-        throw (error)
+        throw new Error(error);
       }
     }
   },

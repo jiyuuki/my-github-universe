@@ -41,17 +41,20 @@ export default {
     const store = useStore()
     const routerUsername = route.params.username
 
-    onMounted(() => {
-      store.dispatch('loadInformations', routerUsername).then(() => {
+    const loadInformations = async() => {
+      try {
+        await store.dispatch('loadInformations', routerUsername)
         loader.value = false
-        console.log({ loader: loader.value })
         // add UI for this loader
-      }).catch((error) => {
+      } catch (error) {
         router.push({
           name: 'Search',
           params: { error: error.message }
         })
-      })
+      }
+    }
+    onMounted(() => {
+      loadInformations()
     })
 
     const informations = computed(() => {

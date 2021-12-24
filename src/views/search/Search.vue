@@ -45,8 +45,7 @@ export default {
   props: {
     error: {
       type: String,
-      default: null,
-      required: false
+      default: null
     }
   },
 

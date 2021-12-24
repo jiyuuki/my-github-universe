@@ -12,19 +12,39 @@ const apiClient = axios.create({
 })
 
 export default {
-  getInformation(username) {
-    return apiClient.get(username)
+  async getInformation(username) {
+    try {
+      await apiClient.get(username)
+    } catch (error) {
+      throw new Error(error)
+    }
   },
-  getRepositories(username) {
-    return apiClient.get(username + '/repos')
+  async getRepositories(username) {
+    try {
+      await apiClient.get(username + '/repos')
+    } catch (error) {
+      throw new Error(error)
+    }
   },
-  getFollowers(username) {
-    return apiClient.get(username + '/followers')
+  async getFollowers(username) {
+    try {
+      await apiClient.get(username + '/followers')
+    } catch (error) {
+      throw new Error(error)
+    }
   },
-  getFollowing(username) {
-    return apiClient.get(username + '/following')
+  async getFollowing(username) {
+    try {
+      await apiClient.get(username + '/following')
+    } catch (error) {
+      throw new Error(error)
+    }
   },
-  getOrganizations(username) {
-    return apiClient.get(username + '/orgs')
+  async getOrganizations(username) {
+    try {
+      await apiClient.get(username + '/orgs')
+    } catch (error) {
+      throw new Error(error)
+    }
   }
 }
