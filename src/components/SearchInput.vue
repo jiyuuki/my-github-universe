@@ -2,6 +2,7 @@
   <el-button v-show="false" plain @click="errorNotification" />
   <el-row :gutter="2">
     <el-input
+      ref="refInput"
       v-model="search"
       @keyup.enter.prevent="searchUniverse"
       :placeholder="placeholder"
@@ -13,7 +14,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { ElNotification } from 'element-plus'
@@ -45,22 +46,27 @@ export default {
         type: 'error',
       })
     }
-
+    const refInput = ref(null)
     const search = ref('')
 
     const searchUniverse = async() => {
       try {
-        await store.dispatch('loadInformations', search.value.trim().toLowerCase())
+        const searchValue = search.value.trim().toLowerCase()
+        await store.dispatch('loadInformations', searchValue)
         router.push({
           name: 'Universe',
-          params: { username: search.value.trim().toLowerCase() }
+          params: { username: searchValue }
         })
       } catch (error) {
         errorNotification(error.message)
       }
     }
 
+    onMounted(() => {
+      refInput.value.focus()
+    })
     return {
+      refInput,
       search,
       Search,
       searchUniverse,
