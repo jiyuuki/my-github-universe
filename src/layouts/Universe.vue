@@ -5,7 +5,7 @@
     </el-aside>
     <el-container>
       <el-header>
-        <NavBar />
+        <NavBar :informations="informations" />
       </el-header>
       <el-main>
         <router-view :informations="informations" />

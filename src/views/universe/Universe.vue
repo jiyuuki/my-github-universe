@@ -17,10 +17,6 @@ export default {
 
   components: {
     InfoRepository
-  },
-
-  setup() {
-    //
   }
 }
 </script>

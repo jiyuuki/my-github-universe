@@ -17,7 +17,7 @@ export default createStore({
   actions: {
     async loadInformations({ commit }, username) {
       try {
-        const response = await InformationService.getInformation(username)
+        const response = await InformationService.getInformations(username)
         commit('SET_INFORMATIONS', response.data)
         commit('SET_USERNAME', username)
       } catch (error) {

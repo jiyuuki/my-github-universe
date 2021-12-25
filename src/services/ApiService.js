@@ -12,7 +12,7 @@ const apiClient = axios.create({
 })
 
 export default {
-  async getInformation(username) {
+  async getInformations(username) {
     try {
       return await apiClient.get(username)
     } catch (error) {

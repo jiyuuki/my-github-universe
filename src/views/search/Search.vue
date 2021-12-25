@@ -17,15 +17,7 @@
                 Search
               </h3>
               <div class="m-4">
-                <input
-                  ref="refInput"
-                  v-model="username"
-                  @keyup.enter.prevent="searchUniverse"
-                  class="block w-full px-4 py-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                  type="text"
-                  placeholder="Username"
-                  aria-label="Usename"
-                >
+                <SearchInput :placeholder="placeholder" />
               </div>
             </div>
           </div>
@@ -36,11 +28,16 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { ElNotification } from 'element-plus'
+import SearchInput from '@/components/SearchInput.vue'
 
 export default {
   name: 'Search',
+
+  components: {
+    SearchInput
+  },
 
   props: {
     error: {
@@ -50,8 +47,8 @@ export default {
   },
 
   setup(props) {
-    const refInput = ref(null)
-    const username = ref('')
+    const placeholder = 'Type your username'
+
     const errorNotification = (error) => {
       if (error === null) return false
       ElNotification({
@@ -61,20 +58,13 @@ export default {
       })
     }
 
-    const searchUniverse = () => {
-      console.log({ username: username.value })
-    }
-
     onMounted(() => {
       errorNotification(props.error)
-      refInput.value.focus()
     })
 
     return {
-      refInput,
-      username,
-      searchUniverse,
-      errorNotification
+      placeholder,
+      errorNotification,
     }
   }
 }
